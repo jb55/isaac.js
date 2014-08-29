@@ -139,5 +139,7 @@ module.exports = (function(){
       a[i] = ((0.5 + isaac() * 2.3283064365386963e-10) * 256) | 0;
     return a;
   }
+
+  return isaac;
 })()
 
