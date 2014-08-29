@@ -128,10 +128,16 @@ module.exports = (function(){
   }
 
   /* return a random number between */
-  return function() {
+  function isaac() {
       if (!gnt--)
           prng(), gnt = 255;
       return r[gnt];
   };
+
+  isaac.bytes = function(len) {
+    for (var a=[], i=0; i<len; ++i)
+      a[i] = ((0.5 + isaac() * 2.3283064365386963e-10) * 256) | 0;
+    return a;
+  }
 })()
 
